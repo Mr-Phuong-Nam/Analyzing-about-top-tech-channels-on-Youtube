@@ -4,11 +4,8 @@ import numpy as np
 import pandas as pd
 import requests
 
-# # Lấy API_KEY từ file API_KEY.txt
-# API_KEY = open('../data/external/API_KEY.txt', 'r').read()
-API_KEYS = json.load(open('../data/external/API_KEY.json', 'r'))
-API_KEY = API_KEYS['Nam']
-
+# Lấy API_KEY từ file API_KEY.txt
+API_KEY = json.load(open('../data/external/API.json', 'r'))['Phuc']
 MAX_RESULTS=50
 MAX_RESULTS_COMMENT=50
 MAX_RESULTS_REPLY=5
