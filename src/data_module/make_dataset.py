@@ -122,6 +122,7 @@ def build_request_link_for_get_comments(video_id, next_page_token=None):
         return "&".join([main_url+"commentThreads?",part,id,key,max_result])
 
 
+MAX_RESULTS_COMMENT=100
 
 def get_all_playlists(channel_id):
     """Hàm lấy tất cả các playlist của một channel và các thông tin liên quan 
@@ -394,6 +395,10 @@ def get_all_video_not_in_playlists(channel_id,videos_in_playlists:pd.DataFrame):
             message="No items found from channel id: "+channel_id
             break
     return videos_df,errorCode,message
+
+
+
+
 
 
 def GetCommentReply(comment_id,video_id):
