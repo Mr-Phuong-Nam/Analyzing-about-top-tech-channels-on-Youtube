@@ -383,6 +383,12 @@ def get_all_video_not_in_playlists(channel_id,videos_in_playlists:pd.DataFrame):
                             # message="Error when get video detail from video id: "+video_id
                             # break
                             continue
+                        
+    #                     ['video_id', 'title', 'published', 'view_count', 'like_count',
+    #    'comment_count', 'duration', 'definition', 'tags',
+    #    'default_audio_language', 'madeforkid', 'playlist_title',
+    #    'channelTitle', 'playlist_published', 'playlist_numvideo'],
+    #   dtype='object')
                         videos_df=videos_df.append({'playlist_id':None,'video_id': video_id,'title':title,'published':published,'view_count':view_count,'like_count':like_count,
                                                 'comment_count':comment_count,'duration':duration,'definition':definition,'tags':tags,
                                                 'default_audio_language':default_audio_language,'madeforkid':madeforkid}, ignore_index=True)
@@ -619,7 +625,11 @@ def make_dataset_playlist_video(channel, channel_id):
     if result!=no_playlist_rs:
         # Nôi playlist_df và videos_df lại thành một dataframe video duy nhất
         videos_df = pd.merge(videos_df, playlists_df, on='playlist_id', how='left')
-    
+        #Dán channel_id ,channel_title cho những video không có trong playlist
+
+    #Dán channel_id ,channel_title cho những video không có trong playlist
+    videos_df['channel_id']=channel_id
+    videos_df['channelTitle']=channel
     # Save dataframe thành file csv
     videos_df.to_csv(f'../data/raw/{channel}_videos.csv', index=False)
     return result
