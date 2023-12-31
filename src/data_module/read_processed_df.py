@@ -22,7 +22,7 @@ def read_video_df():
 
 def read_comment_df():
     path = folder_path + 'df_comments_processed.csv'
-    df_comments = pd.read_csv(path)
+    df_comments = pd.read_csv(path, lineterminator='\n')
     df_comments['published_at'] =  df_comments['published_at'].apply(pd.to_datetime)
     df_comments['updatedat'] =  df_comments['updatedat'].apply(pd.to_datetime)
     return df_comments
