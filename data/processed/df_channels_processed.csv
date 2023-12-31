@@ -1,19 +1,115 @@
-channel_name,playlist_count,video_count,subscriber_count,view_count,like_count,comment_count,join_date,country,link
-DeepLearningAI,17,364,271000,16853716,193994.0,6398.0,2017-08-22T22:27:58Z,Not available,https://www.youtube.com/channel/UCcIXc5mJsHVYTZR1maL5l9w
-3Blue1Brown,20,177,5750000,458811087,12643439.0,448521.0,2015-03-03T23:11:55Z,United States,https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
-Joma Tech,10,108,2270000,187590804,6679177.0,218210.0,2016-08-31T22:22:07Z,United States,https://www.youtube.com/channel/UCV0qA-eDDICsRR9rPcnG7tw
-DataCamp,25,851,155000,17927443,55430.0,1913.0,2014-03-25T14:48:01Z,United States,https://www.youtube.com/channel/UC79Gv3mYp6zKiSwYemEik9A
-CS Dojo,9,105,1920000,80114014,1997796.0,87334.0,2016-02-26T01:49:30Z,Canada,https://www.youtube.com/channel/UCxX9wt5FWQUAAz4UrysqK9A
-sentdex,95,1221,1280000,120676584,1362276.0,135903.0,2012-12-16T20:49:11Z,United States,https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ
-StatQuest with Josh Starmer,15,192,1060000,56417057,1235579.0,82326.0,2011-05-24T01:52:48Z,United States,https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw
-Tech With Tim,72,784,1400000,119884321,3153040.0,125261.0,2014-04-23T01:57:10Z,Canada,https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
-365 Data Science,18,224,304000,13603729,271195.0,7785.0,2017-08-07T15:17:05Z,Bulgaria,https://www.youtube.com/channel/UCEBpSZhI1X8WaP-kY_2LLcg
-Data Professor,30,385,172000,17006302,529963.0,26732.0,2019-08-17T15:59:56Z,Thailand,https://www.youtube.com/channel/UCV8e2g4IWQqK71bbzGDEI4Q
-Data Science Dojo,37,310,102000,56362401,1257884.0,37056.0,2014-08-06T21:12:46Z,United States,https://www.youtube.com/channel/UCzL_0nIe8B4-7ShhVPfJkgw
-codebasics,48,642,912000,65421633,1477752.0,73747.0,2015-11-07T17:29:46Z,United States,https://www.youtube.com/channel/UCh9nVJoWXmFb7sLApWGcLPQ
-Two Minute Papers,11,836,1510000,133518421,5474425.0,270422.0,2006-08-18T00:05:41Z,Hungary,https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg
-TheAiGrid,0,175,137000,19439690,268312.0,36818.0,2023-01-18T05:19:13.914691Z,United Kingdom,https://www.youtube.com/channel/UCbY9xX3_jW5c2fjlZVBI4cg
-AI News,22,431,69800,5625631,101018.0,10181.0,2022-02-28T03:10:31.061038Z,United States,https://www.youtube.com/channel/UCDZfn935vwaahDabsfylfIQ
-Abhishek Thakur,13,172,108000,2929897,71003.0,7041.0,2009-05-24T11:41:32Z,Norway,https://www.youtube.com/channel/UCBPRJjIWfyNG4X-CRbnv78A
-IBM Technology,39,651,614000,30624198,725443.0,18413.0,2008-05-27T21:31:11Z,United States,https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ
-PRO ROBOTS,9,148,331000,14250159,246519.0,12430.0,2020-04-04T20:49:24.716956Z,United States,https://www.youtube.com/channel/UCu8luTDe_Xxd2ahAXsCWX5g
+channel_name,playlist_count,video_count,subscriber_count,view_count,like_count,comment_count,join_date,country,description,link
+DeepLearningAI,17,364,271000,16853716,193994.0,6398.0,2017-08-22T22:27:58Z,Not available,"Welcome to the official DeepLearning.AI YouTube channel! Here you can find the videos from our Coursera programs on machine learning as well as recorded events.
+
+DeepLearning.AI was founded in 2017 by machine learning and education pioneer Andrew Ng to fill a need for world-class AI education.
+
+DeepLearning.AI has created high-quality AI programs on Coursera that have gained an extensive global following. By providing a platform for education and fostering a tight-knit community, DeepLearning.AI has become the pathway for anyone looking to build an AI career.
+",https://www.youtube.com/channel/UCcIXc5mJsHVYTZR1maL5l9w
+3Blue1Brown,20,177,5750000,458811087,12643439.0,448521.0,2015-03-03T23:11:55Z,United States,"My name is Grant Sanderson. Videos here cover a variety of topics in math, or adjacent fields like physics and CS, all with an emphasis on visualizing the core ideas. To goal is to use animation to help elucidate and motivate otherwise tricky topics, and for difficult problems to be made simple with changes in perspective.
+
+For more information, other projects, FAQs, and inquiries see the website: https://www.3blue1brown.com",https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
+Joma Tech,10,108,2270000,187590804,6679177.0,218210.0,2016-08-31T22:22:07Z,United States,"I talk about life in Silicon Valley and at big tech companies.
+
+Follow me on:
+Instagram: http://instagram.com/jomakaze
+Twitter: https://twitter.com/jomakaze
+
+Business inquiries: business@joma.io
+",https://www.youtube.com/channel/UCV0qA-eDDICsRR9rPcnG7tw
+DataCamp,25,851,155000,17927443,55430.0,1913.0,2014-03-25T14:48:01Z,United States,"Welcome to DataCamp's official YouTube channel, your premier resource for data science and AI learning! DataCamp is an interactive learning platform aimed at democratizing data science and AI education. Our mission? To empower everyone with the skills to understand, analyze, and interpret data.
+
+Our channel offers educational content, expert talks, and tutorials in data science, AI, machine learning, data visualization, and more. All levels are welcome, from aspiring data scientists to seasoned professionals looking to hone their skills.
+
+Visit our website: https://www.datacamp.com/
+
+Follow us:
+Facebook: https://www.facebook.com/datacampinc/
+Twitter: https://twitter.com/DataCamp
+Instagram: https://www.instagram.com/datacamp
+LinkedIn: https://www.linkedin.com/school/datacampinc/
+
+Join us in the data and AI revolution! #DataCamp #DataScience #AI
+",https://www.youtube.com/channel/UC79Gv3mYp6zKiSwYemEik9A
+CS Dojo,9,105,1920000,80114014,1997796.0,87334.0,2016-02-26T01:49:30Z,Canada,"Hello! My name is YK, and I usually make videos about programming and computer science here :)
+
+Business email: https://www.csdojo.io/contact/
+The logo was made by: my friend Youdong Zhang
+",https://www.youtube.com/channel/UCxX9wt5FWQUAAz4UrysqK9A
+sentdex,95,1221,1280000,120676584,1362276.0,135903.0,2012-12-16T20:49:11Z,United States,"Python Programming tutorials, going further than just the basics. Learn about machine learning, finance, data analysis, robotics, web development, game development and more.
+
+I have ~1000 videos, all of which do not fit on the front page. Try searching on the channel page, or via https://pythonprogramming.net. If you cannot find something, just ask! 
+
+Bitcoin donations: 1GV7srgR4NJx4vrk7avCmmVQQrqmv87ty6
+Paypal donations: HSKinsley@gmail.com",https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ
+StatQuest with Josh Starmer,15,192,1060000,56417057,1235579.0,82326.0,2011-05-24T01:52:48Z,United States,"Statistics, Machine Learning and Data Science can sometimes seem like very scary topics, but since each technique is really just a combination of small and simple steps, they are actually quite simple. My goal with StatQuest is to break down the major methodologies into easy to understand pieces. That said, I don't dumb down the material. Instead, I build up your understanding so that you are smarter.
+
+Contact, Video Index, Etc: https://statquest.org",https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw
+Tech With Tim,72,784,1400000,119884321,3153040.0,125261.0,2014-04-23T01:57:10Z,Canada,"Learn programming, software engineering, machine learning and everything tech from this channel. With a special emphasis on python and javascript my channel aims to give you free resources so that you can learn to code and dive into the software engineering and programming industry. My goal is to provide the highest quality programming and tech videos on the internet! ",https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
+365 Data Science,18,224,304000,13603729,271195.0,7785.0,2017-08-07T15:17:05Z,Bulgaria,"At 365 Data Science we make #DataScience accessible to all by providing the highest quality online data science education. Our courses are designed to build up your skill set from beginner to job-ready, regardless of your current level, background education, and experience.
+
+Our data science program helps students and young professionals embark on a career as a data scientist. Demand for qualified data scientists is at an all-time high and traditional degrees are simply too expensive, time-consuming or rigid to meet the majority of needs. Our mission is to close that gap. 
+
+We provide high quality, affordable training to open new opportunities for students and professionals all over the world. 
+We constantly improve our program offering and the customer experience.
+We’ve Helped More than 1 Million Student differentiate themselves by providing them with:
+
+• 217+ Hours of video
+• 1,980+ Lessons
+• 64+ Courses
+• 2M+ Students
+
+Ready to Start Your Career?
+",https://www.youtube.com/channel/UCEBpSZhI1X8WaP-kY_2LLcg
+Data Professor,30,385,172000,17006302,529963.0,26732.0,2019-08-17T15:59:56Z,Thailand,"Data Science, Machine Learning, Bioinformatics, Research and Teaching are my passion. The Data Professor YouTube channel is an extension of my passion in helping students and data enthusiast learn about Data Science and how it can be used to make sense of data. This channel provides Data Science contents consisting of explainer videos and practical tutorials.
+
+Chanin Nantasenamat, Ph.D. was an Associate Professor of Bioinformatics at a Research University where he led a research laboratory that harnesses data science for unraveling the hidden knowledge of big data in medicine. Chanin has more than 15 years of experience in data science (as applied to bioinformatics) and has published more than 160 research articles, review articles and book chapters.
+
+If you are fascinated about data science, it would mean the world to me if you would consider subscribing to this channel (by clicking the link below):
+http://bit.ly/dataprofessor
+
+รศ.ดร.ชนินทร์ นันทเสนามาตร์ ",https://www.youtube.com/channel/UCV8e2g4IWQqK71bbzGDEI4Q
+Data Science Dojo,37,310,102000,56362401,1257884.0,37056.0,2014-08-06T21:12:46Z,United States,"Data Science Dojo is an e-learning company that is redefining the data science, large language models, and generative AI education landscape with a simpler, digestible, and not to brag ---- engaging curriculum. We believe that data science & AI is for everyone.  So, we invest our time in simplifying and educating data science and LLM concepts that our attendees can actually apply to generate business value in their respective job functions.
+
+Our channel showcases our commitment to teaching data science, generative AI, and large language models! You will find tutorials, community talks, and courses on data science and LLM. We offer many courses that address all competency levels. Explore the full catalog of courses on Data Science Dojo and start learning today → datasciencedojo.com ",https://www.youtube.com/channel/UCzL_0nIe8B4-7ShhVPfJkgw
+codebasics,48,642,912000,65421633,1477752.0,73747.0,2015-11-07T17:29:46Z,United States,"I am Dhaval Patel, Founder of the online education platform codebasics.io and a co-founder of a software & data company called AtliQ Technologies (Ex. Bloomberg, NVIDIA).  Teaching is my passion. The goal of this channel is to make the BEST quality DATA education available to all for free. I have more than 12+ years of DATA INDUSTRY experience (mainly in the USA) and the co-founder of this channel Hemanand Vadivel has 6+ years of DATA INDUSTRY experience in Europe. We teach based on our real-life experiences in the industry. 
+
+Visit https://codebasics.io/ for my video courses that teach technology in the most simplistic and practical way!
+
+I teach simple programming, data science, data analytics, artificial intelligence, machine learning, data structures, software architecture, etc on my channel.
+
+For all Business and Sponsorship related inquiries, please contact business@codebasics.io.
+
+",https://www.youtube.com/channel/UCh9nVJoWXmFb7sLApWGcLPQ
+Two Minute Papers,11,836,1510000,133518421,5474425.0,270422.0,2006-08-18T00:05:41Z,Hungary,What a time to be alive!,https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg
+TheAiGrid,0,175,137000,19439690,268312.0,36818.0,2023-01-18T05:19:13.914691Z,United Kingdom,"From the latest research and developments in machine learning and natural language processing, to practical applications and the ethical considerations surrounding AI, this channel is your go-to source for all things related to this exciting field. Subscribe now to stay up-to-date on the cutting-edge of AI and join the conversation about the future of intelligence.
+
+contact@theaigrid.com (For Business Enquiries) 
+",https://www.youtube.com/channel/UCbY9xX3_jW5c2fjlZVBI4cg
+AI News,22,431,69800,5625631,101018.0,10181.0,2022-02-28T03:10:31.061038Z,United States,"AI News delivers the latest breakthroughs in artificial intelligence, machine learning, deep learning, brain computer interface, robotics, and other future technology in an educational format.
+
+Premium Robots - https://taimine.com
+",https://www.youtube.com/channel/UCDZfn935vwaahDabsfylfIQ
+Abhishek Thakur,13,172,108000,2929897,71003.0,7041.0,2009-05-24T11:41:32Z,Norway,"I make videos about applied machine learning, deep learning, and data science.
+I am the world's first Quadruple Grand Master on Kaggle.
+
+My code-intensive book, ""Approaching (Almost) Any Machine Learning Problem"" can be downloaded for free from: https://bit.ly/approachingml. If you like it you can also buy paperback copies :)
+
+Feel free to contact me for sponsorships, unboxing, etc.
+",https://www.youtube.com/channel/UCBPRJjIWfyNG4X-CRbnv78A
+IBM Technology,39,651,614000,30624198,725443.0,18413.0,2008-05-27T21:31:11Z,United States,"Whether it’s AI, automation, cybersecurity, data science, DevOps, quantum computing or anything in between, we provide educational content on the biggest topics in tech. Subscribe to build your skillset, learn about new trends, and gain insights from IBM experts. 
+
+This channel follows the IBM Social Computing Guidelines.
+
+",https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ
+PRO ROBOTS,9,148,331000,14250159,246519.0,12430.0,2020-04-04T20:49:24.716956Z,United States,"Welcome to the PRO Robots Channel! 
+
+Here we share cutting-edge future technologies from the world of robots, drones, AI and virtual reality, as well as news, reviews, top achievements and revelations. 
+
+What robots can do today and what they will learn in the future? 
+Where and how people can learn profession of the future? 
+When will we become cyborgs or start living in virtual reality? 
+All answers are here - on our PRO Robots channel! 
+
+Sign up and you will be the first to know! 
+
+YOU CAN CHANGE THE FUTURE!",https://www.youtube.com/channel/UCu8luTDe_Xxd2ahAXsCWX5g
