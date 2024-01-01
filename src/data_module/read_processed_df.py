@@ -14,7 +14,6 @@ def read_video_df():
     path = folder_path + 'df_videos_processed.csv'
     df_videos = pd.read_csv(path)
     df_videos['published'] = pd.to_datetime(df_videos['published'])
-    df_videos['playlist_published'] = pd.to_datetime(df_videos['playlist_published'])
     df_videos['duration'] = pd.to_timedelta(df_videos['duration'])
     df_videos['tags'] = df_videos['tags'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else np.nan)
 
