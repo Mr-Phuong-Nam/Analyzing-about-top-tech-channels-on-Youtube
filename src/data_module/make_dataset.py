@@ -15,23 +15,6 @@ main_url = 'https://www.googleapis.com/youtube/v3/'
 def create_page_token(next_page_token):
     return f"pageToken={next_page_token}" if next_page_token else ""
 
-def build_request_link_for_get_playlists(channel_id, next_page_token=None):
-    """Hàm tạo request link để lấy các playlist trong một channel
-    Args:
-        channel_id (str):- Id của channel
-                         - next_page_token
-    Returns:
-        link 
-    """
-    part=f"part=snippet,contentDetails"
-    id=f"channelId={channel_id}"
-    key=f"key={API_KEY}"
-    max_result=f"maxResults={MAX_RESULTS}"
-    page_token=create_page_token(next_page_token)
-    if page_token:
-        return "&".join([main_url+"playlists?",part,id,key,max_result,page_token])
-    else:
-        return "&".join([main_url+"playlists?",part,id,key,max_result])
 
 def build_request_link_for_get_video_detail(video_id, next_page_token=None):
     """Hàm tạo request link để lấy các thông tin trong video
@@ -51,25 +34,9 @@ def build_request_link_for_get_video_detail(video_id, next_page_token=None):
     else:
         return "&".join([main_url+"videos?",part,id,key,max_result])
 
-def build_request_link_for_get_all_video_in_playlists(playlist_id, next_page_token=None):   
-    """Hàm tạo request link để lấy các thông tin cơ bản của video trong playlist
-    Args:
-        video_id (str):- Id của playlist
-                        - next_page_token
-    Returns:
-        link 
-    """
-    part=f"part=snippet,contentDetails"
-    id=f"playlistId={playlist_id}"
-    key=f"key={API_KEY}"
-    max_result=f"maxResults={MAX_RESULTS}"
-    page_token=create_page_token(next_page_token)
-    if page_token:
-        return "&".join([main_url+"playlistItems?",part,id,key,max_result,page_token])
-    else:
-        return "&".join([main_url+"playlistItems?",part,id,key,max_result])
-def build_request_link_for_get_video_not_in_playlists(channel_id, next_page_token=None):
-    """Hàm tạo request link để lấy các thông tin cơ bản của video mà không được thêm vào playlist
+
+def build_request_link_all_videos_in_channel(channel_id, next_page_token=None):
+    """Hàm tạo request link để lấy các thông tin cơ bản của video
     Args:
         channel_id (str):- Id của channel
                         - next_page_token
@@ -85,6 +52,8 @@ def build_request_link_for_get_video_not_in_playlists(channel_id, next_page_toke
         return "&".join([main_url+"search?",part,id,key,max_result,page_token])
     else:
         return "&".join([main_url+"search?",part,id,key,max_result])
+    
+
 def build_request_link_for_get_replies_comment(comment_id, next_page_token=None):
     """Hàm tạo request link để lấy các thông tin của comment reply
     Args:
@@ -121,77 +90,6 @@ def build_request_link_for_get_comments(video_id, next_page_token=None):
     else:
         return "&".join([main_url+"commentThreads?",part,id,key,max_result])
 
-
-MAX_RESULTS_COMMENT=100
-
-def get_all_playlists(channel_id):
-    """Hàm lấy tất cả các playlist của một channel và các thông tin liên quan 
-
-    Args:
-        channel_id (str): Id của channel
-    Returns:
-        List:Dataframe các playlist của channel với trường như sau:
-            - playlist_id: Id của playlist
-            - playlist_title: Tên của playlist
-            - channel_id: Id của channel
-            - channelTitle: Tên của channel
-            - playlist_published: Ngày playlist được tạo
-            - playlist_numvideo: Số video trong playlist
-    """
-    playlists_df = pd.DataFrame()
-    next_page_token = None   # Khởi tạo next_page_token để lấy các trang tiếp theo 
-    errorCode=0      #0 is success, other value is error
-    message=""       #message of error
-
-    while True:
-        # Tạo URL để gửi request lấy thông tin playlist
-        playlists_url=build_request_link_for_get_playlists(channel_id,next_page_token)
-
-        # Gửi request và nhận response
-        playlists_response = requests.get(playlists_url)
-
-        # Kiểm tra xem response có thành công không
-        if playlists_response.status_code!=200:
-            errorCode=1
-            message="Error when get playlists from channel id: "+channel_id
-            break
-
-        # Đã lấy được response
-        else:
-            playlists_data = playlists_response.json()
-            # Kiểm tra xem response có dữ liệu không
-            if 'items' in playlists_data:
-                if len(playlists_data['items'])==0:
-                    errorCode=2
-                    message="No playlists found from channel id: "+channel_id
-                    break
-                # Lấy next_page_token để lặp lại yêu cầu
-                next_page_token = playlists_data.get('nextPageToken')
-                
-                #Lấy các playlistid ,ngày published, title ,số video trong playlist
-                for playlist_item in playlists_data['items']:
-                    playlist_id = playlist_item['id']
-
-                    #Tạo playlist_snippet cho dễ xử lý
-                    playlist_snippet = playlist_item['snippet']
-                    playlists_title=playlist_item['snippet']['title']
-                    author=playlist_snippet['channelTitle']
-                    playlists_published=playlist_snippet['publishedAt']
-                    playlists_numvideo=playlist_item['contentDetails']['itemCount']
-                    #Thêm vào dataframe
-                    playlists_df=playlists_df.append({'playlist_id':playlist_id,'playlist_title':playlists_title,'channel_id':channel_id,'channelTitle':author,
-                                     'playlist_published':playlists_published,'playlist_numvideo':playlists_numvideo
-                                     },ignore_index=True)
-                # Kiểm tra xem có trang kế tiếp không
-                if not next_page_token:
-                    break
-
-            else:
-                errorCode=3
-                message="No items found from channel id: "+channel_id
-                break
-
-    return playlists_df,errorCode,message
 
 
 def GetDetailVideo(video_id):
@@ -248,91 +146,14 @@ def GetDetailVideo(video_id):
     return title, published, view_count, like_count, comment_count, \
            duration, definition, tags, default_audio_language, madeforkid, errorCode, message
 
-def get_all_video_ids(playlist_id):
-    """Hàm lấy các thông tin của các video trong playlist
 
-    Args:
-        playlist_id (str): Id của playlist
-    Returns:
-    Dataframe các video trong playlist với các trường như sau:
-        - playlist_id: Id của playlist
-        - video_id: Id của video
-        #Các thông tin bên dưới lấy từ hàm GetDetailVideo
-        - title: Tên của video
-        - published: Ngày video được đăng
-        - view_count: Số lượt xem
-        - like_count: Số lượt thích
-        - comment_count: Số lượt bình luận
-        - duration: Thời lượng video
-        - definition: Độ phân giải
-        - tags: Các tag của video
-        - default_audio_language: Ngôn ngữ mặc định
-        - madeforkid: Video dành cho trẻ em hay không
-    """
-    videos_df = pd.DataFrame()
-    next_page_token = None
-    errorCode=0      #0 là thành công, các giá trị khác là lỗi
-    message=""       #message of error
-    while True:
-        # Tạo URL endpoint để lấy danh sách video trong playlist
-        playlist_items_url=build_request_link_for_get_all_video_in_playlists(playlist_id,next_page_token)
-
-        # Gửi request và nhận response
-        playlist_items_response = requests.get(playlist_items_url)
-        if playlist_items_response.status_code!=200:
-            errorCode=1
-            message="Error when get videos from playlist id: "+playlist_id
-            break
-        
-        # Đã lấy được response
-        playlist_items_data = playlist_items_response.json()
-
-        # Kiểm tra xem response có dữ liệu không
-        if 'items' in playlist_items_data:
-
-            # Lấy các video id từ response
-            for item in playlist_items_data['items']:
-                video_id = item['contentDetails']['videoId']
-
-                errorCodeVideoDetail=0
-                messageVideoDetail=""
-                title,published,view_count,like_count,comment_count,\
-                duration,definition,tags,default_audio_language,madeforkid,\
-                errorCodeVideoDetail,messageVideoDetail=GetDetailVideo(video_id)
-
-                if errorCodeVideoDetail!=0:
-                    # errorCode=2
-                    # message="Error when get video detail from video id: "+video_id
-                    # break
-                    continue     #Bỏ qua video này nếu lỗi 
-                
-                #Thêm vào dataframe
-                videos_df = videos_df.append({'playlist_id':playlist_id,'video_id': video_id,'title':title,'published':published,
-                                              'view_count':view_count,'like_count':like_count,
-                                              'comment_count':comment_count,'duration':duration,
-                                              'definition':definition,'tags':tags,'default_audio_language':default_audio_language,
-                                              'madeforkid':madeforkid}, ignore_index=True)
-            # Lấy next_page_token để lặp lại yêu cầu
-            next_page_token = playlist_items_data.get('nextPageToken')
-
-            # Kiểm tra xem có trang kế tiếp không
-            if not next_page_token:
-                break
-        else:
-            errorCode=3
-            message="No items found from playlist id: "+playlist_id
-            break
-            
-    return videos_df,errorCode,message
-
-def get_all_video_not_in_playlists(channel_id,videos_in_playlists:pd.DataFrame):
-    """Hàm lấy các thông tin của các video không có trong playlist
+def get_all_video_in_channel(channel_id):
+    """Hàm lấy các thông tin của các video trong channel
 
     Args:
         channel_id (str): Id của channel
     Returns:
-    Dataframe các video không có trong playlist với các trường như sau:
-        - playlist_id: Id của playlist
+    Dataframe các video với các trường như sau:
         - video_id: Id của video
         #Các thông tin bên dưới lấy từ hàm GetDetailVideo
         - title: Tên của video
@@ -352,7 +173,7 @@ def get_all_video_not_in_playlists(channel_id,videos_in_playlists:pd.DataFrame):
     message=""       #message of error
     while True:
         # Tạo URL endpoint để lấy danh sách video trong playlist
-        videos_url=build_request_link_for_get_video_not_in_playlists(channel_id,next_page_token)
+        videos_url=build_request_link_all_videos_in_channel(channel_id,next_page_token)
 
         # Gửi request và nhận response
         response = requests.get(videos_url)
@@ -371,27 +192,26 @@ def get_all_video_not_in_playlists(channel_id,videos_in_playlists:pd.DataFrame):
             for item in data['items']:
                 if item['id'].get('kind')=='youtube#video':
                     video_id = item['id'].get('videoId')
-                    if video_id not in videos_in_playlists['video_id'].values:
-                        errorCodeVideoDetail=0
-                        messageVideoDetail=""
-                        title,published,view_count,like_count,comment_count,\
-                        duration,definition,tags,default_audio_language,madeforkid,\
-                        errorCodeVideoDetail,messageVideoDetail=GetDetailVideo(video_id)
+                    errorCodeVideoDetail=0
+                    messageVideoDetail=""
+                    title,published,view_count,like_count,comment_count,\
+                    duration,definition,tags,default_audio_language,madeforkid,\
+                    errorCodeVideoDetail,messageVideoDetail=GetDetailVideo(video_id)
 
-                        if errorCodeVideoDetail!=0:
-                            # errorCode=2
-                            # message="Error when get video detail from video id: "+video_id
-                            # break
-                            continue
-                        
-    #                     ['video_id', 'title', 'published', 'view_count', 'like_count',
-    #    'comment_count', 'duration', 'definition', 'tags',
-    #    'default_audio_language', 'madeforkid', 'playlist_title',
-    #    'channelTitle', 'playlist_published', 'playlist_numvideo'],
-    #   dtype='object')
-                        videos_df=videos_df.append({'playlist_id':None,'video_id': video_id,'title':title,'published':published,'view_count':view_count,'like_count':like_count,
-                                                'comment_count':comment_count,'duration':duration,'definition':definition,'tags':tags,
-                                                'default_audio_language':default_audio_language,'madeforkid':madeforkid}, ignore_index=True)
+                    if errorCodeVideoDetail!=0:
+                        # errorCode=2
+                        # message="Error when get video detail from video id: "+video_id
+                        # break
+                        continue
+                    
+#                     ['video_id', 'title', 'published', 'view_count', 'like_count',
+#    'comment_count', 'duration', 'definition', 'tags',
+#    'default_audio_language', 'madeforkid', 'playlist_title',
+#    'channelTitle', 'playlist_published', 'playlist_numvideo'],
+#   dtype='object')
+                    videos_df=videos_df.append({'video_id': video_id,'title':title,'published':published,'view_count':view_count,'like_count':like_count,
+                                            'comment_count':comment_count,'duration':duration,'definition':definition,'tags':tags,
+                                            'default_audio_language':default_audio_language,'madeforkid':madeforkid}, ignore_index=True)
             # Lấy next_page_token để lặp lại yêu cầu  
             next_page_token = data.get('nextPageToken')
             if not next_page_token:
@@ -574,10 +394,6 @@ def make_dataset_playlist_video(channel, channel_id):
         channel_id (str): Id của channel
     Returns:
     Dataframe các video của channel với các trường như sau:
-        - playlist_id: Id của playlist
-        - playlist_title: Tên của playlist
-        - playlist_published: Ngày playlist được tạo
-        - playlist_numvideo: Số video trong playlist
         - video_id: Id của video
         #Các thông tin bên dưới lấy từ hàm GetDetailVideo
         - title: Tên của video
@@ -591,41 +407,21 @@ def make_dataset_playlist_video(channel, channel_id):
         - default_audio_language: Ngôn ngữ mặc định
         - madeforkid: Video dành cho trẻ em hay không
     """
-    # Tạo dataframe để lưu thông tin các playlist của channel
-    playlists_df = pd.DataFrame(columns=['playlist_id', 'playlist_title', 'channel_id', 'channelTitle',\
-                                         'playlist_published','playlist_numvideo'])
-    playlists_df,errorCode,message=get_all_playlists(channel_id)
-    result=0
-    if errorCode!=0:
-        print(message)
-        result=errorCode
-    # Lấy tất cả video trên playlists
-    no_playlist_rs=2
-    videos_df = pd.DataFrame(columns=['playlist_id', 'video_id', 'title', 'published', 'view_count',
+
+    videos_df = pd.DataFrame(columns=['video_id', 'title', 'published', 'view_count',
        'like_count', 'comment_count', 'duration', 'definition', 'tags',
        'default_audio_language', 'madeforkid'])
-    if result!=no_playlist_rs:
-        for playlist_id in playlists_df['playlist_id']:
-            videos_df_temp,errorCodeVideo,messageVideo=get_all_video_ids(playlist_id)
-            if errorCodeVideo!=0:
-                # errorCode=2
-                print(messageVideo)
-                # break
-                continue
-            videos_df=pd.concat([videos_df,videos_df_temp],ignore_index=True)
+
     # Lấy tất cả video không có trong playlists
-    videos_df_temp,errorCodeVideo,messageVideo=get_all_video_not_in_playlists(channel_id,videos_df)
+
+    result=0 #0 là thành công, các giá trị khác là lỗi
+    
+    videos_df,errorCodeVideo,messageVideo=get_all_video_in_channel(channel_id)
     if errorCodeVideo!=0:
         # errorCode=2
         print(messageVideo)
         # break
         result=errorCodeVideo
-    videos_df=pd.concat([videos_df,videos_df_temp],ignore_index=True)
-
-    if result!=no_playlist_rs:
-        # Nôi playlist_df và videos_df lại thành một dataframe video duy nhất
-        videos_df = pd.merge(videos_df, playlists_df, on='playlist_id', how='left')
-        #Dán channel_id ,channel_title cho những video không có trong playlist
 
     #Dán channel_id ,channel_title cho những video không có trong playlist
     videos_df['channel_id']=channel_id
@@ -633,6 +429,7 @@ def make_dataset_playlist_video(channel, channel_id):
     # Save dataframe thành file csv
     videos_df.to_csv(f'../data/raw/{channel}_videos.csv', index=False)
     return result
+
 def make_dataset_comment(channel):
     """Hàm lấy tất cả các comment của channel
     Args:
