@@ -5,9 +5,9 @@ import pandas as pd
 import requests
 
 # Lấy API_KEY từ file API_KEY.txt
-API_KEY = json.load(open('../data/external/API.json', 'r'))['Phuc']
+API_KEY = json.load(open('../data/external/API.json', 'r'))['default']
 MAX_RESULTS=50
-MAX_RESULTS_COMMENT=50
+MAX_RESULTS_COMMENT=100
 MAX_RESULTS_REPLY=5
 
 
