@@ -1,0 +1,47 @@
+<html>
+<body>
+	<h3>Views Prediction</h3>
+
+<div>
+<form action="/result" method="POST">
+
+	<label for="duration">Duration (second)</label>
+	<input type="text" id="duration" name="duration">
+
+	<br>
+    
+	<label for="st_tag">1st tag</label>
+	<select id="st_tag" name="st_tag">
+	<option value="None">None</option>
+	{% for id, tag in tags.items() %}
+	<option value="{{ tag }}">{{ tag }}</option>
+	{% endfor %}
+	</select>
+
+	<br>
+
+	<label for="nd_tag">2nd tag</label>
+	<select id="nd_tag" name="nd_tag">
+	<option value="None">None</option>
+	{% for id, tag in tags.items() %}
+	<option value="{{ tag }}">{{ tag }}</option>
+	{% endfor %}
+	</select>
+
+	<br>
+
+	<label for="rd_tag">3rd tag</label>
+	<select id="rd_tag" name="rd_tag">
+	<option value="None">None</option>
+	{% for id, tag in tags.items() %}
+	<option value="{{ tag }}">{{ tag }}</option>
+	{% endfor %}
+	</select>
+
+	<br>
+	<input type="submit" value="Submit">
+
+</form>
+</div>
+</body>
+</html>
