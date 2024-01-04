@@ -5,10 +5,11 @@ Final project of Introdution to Data Science
 
  - [Information](#information)
  - [Introduction](#introduction)
- - [Project Plan](#project-plan)
+ - [How can we collect data?](#how-can-we-collect-data)
  - [Structure](#structure)
  - [Environment](#environment)
  - [Usage](#usage)
+ - [Deploy](#deploy)
 
 ## Information
 
