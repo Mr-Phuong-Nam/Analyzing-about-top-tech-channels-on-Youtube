@@ -6,7 +6,7 @@ folder_path = '../data/processed/'
 
 def read_channel_df():
     path = folder_path + 'df_channels_processed.csv'
-    df_channels = pd.read_csv(path)
+    df_channels = pd.read_csv(path, lineterminator='\n')
     df_channels['join_date'] = pd.to_datetime(df_channels['join_date'])
     return df_channels
 
